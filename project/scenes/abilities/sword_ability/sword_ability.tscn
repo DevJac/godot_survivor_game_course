@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://j6f51m0mokfx"]
+[gd_scene load_steps=6 format=3 uid="uid://j6f51m0mokfx"]
 
 [ext_resource type="Texture2D" uid="uid://djf1b0ogndxmt" path="res://scenes/abilities/sword_ability/sword.png" id="1_8l10d"]
 
@@ -43,13 +43,50 @@ tracks/2/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.18, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_8n6ar"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HurtBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_njitp"]
 _data = {
+"RESET": SubResource("Animation_8n6ar"),
 "swing": SubResource("Animation_dk5ew")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpqec"]
+size = Vector2(30, 43)
+
 [node name="SwordAbility" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_njitp")
+}
+autoplay = "swing"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-15, 0)
@@ -57,8 +94,11 @@ scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_8l10d")
 offset = Vector2(0, -8)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_njitp")
-}
-autoplay = "swing"
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_mpqec")
+debug_color = Color(1, 0, 0, 0.419608)

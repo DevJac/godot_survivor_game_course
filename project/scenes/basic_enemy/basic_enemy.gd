@@ -4,6 +4,13 @@ extends CharacterBody2D
 const MAX_SPEED = 75 * 60
 
 
+func _ready() -> void:
+	$HitBox.area_entered.connect(func(_area: Area2D):
+		queue_free()
+	)
+		
+
+
 func _process(delta: float) -> void:
 	var to_player := vector_to_player()
 	if to_player.length_squared() > 1000:

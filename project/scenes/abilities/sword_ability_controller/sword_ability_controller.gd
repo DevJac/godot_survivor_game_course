@@ -9,7 +9,6 @@ const MAX_RANGE := 150
 
 func _ready() -> void:
 	$Timer.timeout.connect(func on_timer_timeout():
-		var sword_instance: Node2D = sword_ability.instantiate()
 		var enemies := get_tree().get_nodes_in_group('enemy')
 		if enemies.size() == 0:
 			return
@@ -26,6 +25,9 @@ func _ready() -> void:
 		if near_enemies.size() == 0:
 			return
 		var nearest_enemy: Node2D = near_enemies[0]
-		nearest_enemy.add_sibling(sword_instance)
+		var sword_instance: Node2D = sword_ability.instantiate()
+		player.add_sibling(sword_instance)
 		sword_instance.global_position = nearest_enemy.global_position
+		var player_to_enemy := nearest_enemy.global_position - player.global_position
+		sword_instance.rotation = player_to_enemy.angle()
 	)
