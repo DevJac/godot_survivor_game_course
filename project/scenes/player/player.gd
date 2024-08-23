@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const MAX_SPEED = 200 * 60
+const MAX_SPEED = 200
 
 
 const MOVEMENTS = {
@@ -20,8 +20,8 @@ func _ready():
 		return true)
 
 
-func _process(delta: float) -> void:
-	velocity = get_movement_vector() * MAX_SPEED * delta
+func _process(_delta: float) -> void:
+	velocity = get_movement_vector() * MAX_SPEED
 	move_and_slide()
 
 

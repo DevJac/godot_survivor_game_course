@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const MAX_SPEED = 75 * 60
+const MAX_SPEED = 75
 
 
 func _ready() -> void:
@@ -11,10 +11,10 @@ func _ready() -> void:
 		
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var to_player := vector_to_player()
 	if to_player.length_squared() > 1000:
-		velocity = to_player.normalized() * MAX_SPEED * delta
+		velocity = to_player.normalized() * MAX_SPEED
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
