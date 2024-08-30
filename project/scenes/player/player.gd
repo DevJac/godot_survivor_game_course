@@ -21,15 +21,15 @@ func _ready():
 
 
 func _process(_delta: float) -> void:
-	velocity = get_movement_vector() * MAX_SPEED
+	velocity = get_movement_direction() * MAX_SPEED
 	move_and_slide()
 
 
-func get_movement_vector() -> Vector2:
+func get_movement_direction() -> Vector2:
 	var integrated_movement = Vector2.ZERO
 	for movement in MOVEMENTS:
-		if Input.get_action_strength(movement):
-			integrated_movement += MOVEMENTS[movement]
-	if not integrated_movement.is_zero_approx():
+		integrated_movement += (
+			Input.get_action_strength(movement) * MOVEMENTS[movement])
+	if integrated_movement > 1:
 		integrated_movement = integrated_movement.normalized()
 	return integrated_movement
