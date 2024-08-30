@@ -8,7 +8,6 @@ func _ready() -> void:
 	$HitBox.area_entered.connect(func(_area: Area2D):
 		queue_free()
 	)
-		
 
 
 func _process(_delta: float) -> void:
