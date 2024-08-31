@@ -7,4 +7,4 @@ func _process(delta: float) -> void:
 	var player: Node2D = player_nodes[0]
 	global_position = global_position.lerp(
 		player.global_position,
-		1 - exp(-delta * 10))
+		1 - exp(-delta * 20))

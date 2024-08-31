@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const MAX_SPEED = 75
+const MAX_SPEED = 40
 
 
 func _ready() -> void:
