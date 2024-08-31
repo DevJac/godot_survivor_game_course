@@ -30,6 +30,6 @@ func get_movement_direction() -> Vector2:
 	for movement in MOVEMENTS:
 		integrated_movement += (
 			Input.get_action_strength(movement) * MOVEMENTS[movement])
-	if integrated_movement > 1:
+	if integrated_movement.length_squared() > 1:
 		integrated_movement = integrated_movement.normalized()
 	return integrated_movement
