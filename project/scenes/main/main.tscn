@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://7op3iid5pv1e"]
+[gd_scene load_steps=9 format=3 uid="uid://7op3iid5pv1e"]
 
+[ext_resource type="PackedScene" uid="uid://d3ld4va33owv3" path="res://scenes/ui/arena_time_ui.tscn" id="1_6jg3n"]
 [ext_resource type="PackedScene" uid="uid://dhluhm7l8owb7" path="res://scenes/game_camera/game_camera.tscn" id="1_ga2pn"]
 [ext_resource type="Texture2D" uid="uid://cs4aedwp1pe23" path="res://assets/environment/tilemap_packed.png" id="1_h5nmu"]
 [ext_resource type="PackedScene" uid="uid://dfjhqxbwkkeii" path="res://scenes/manager/enemy_manager.tscn" id="1_lpnjh"]
 [ext_resource type="PackedScene" uid="uid://da5bsjldwtm1j" path="res://scenes/player/player.tscn" id="1_mtote"]
+[ext_resource type="PackedScene" uid="uid://cniq8kua7h25e" path="res://scenes/manager/arena_time_manager.tscn" id="2_poe86"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tp3oc"]
 texture = ExtResource("1_h5nmu")
@@ -50,6 +52,11 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_tp3oc")
 
 [node name="Main" type="Node"]
+
+[node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_6jg3n")]
+arena_time_manager = NodePath("../ArenaTimeManager")
+
+[node name="ArenaTimeManager" parent="." instance=ExtResource("2_poe86")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2fbm2")
