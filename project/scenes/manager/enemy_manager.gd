@@ -10,7 +10,6 @@ func _ready() -> void:
 
 
 func on_timer_timeout():
-	print('spawn enemy')
 	var player := get_tree().get_first_node_in_group('player')
 	if not player:
 		return

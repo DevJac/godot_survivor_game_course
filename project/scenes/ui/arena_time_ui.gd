@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var label: Label = %Label
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var time_elapsed: float = arena_time_manager.get_time_elapsed()
 	label.text = '%01d:%02d' % [minutes(time_elapsed), seconds(time_elapsed)]
 
