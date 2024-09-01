@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyckowuktka1d"
-path="res://.godot/imported/player.png-d340f81abf0a3162ec6e69b8e169a012.ctex"
+uid="uid://bm4ki1lah8k16"
+path="res://.godot/imported/experience_vile.png-15c8c9f7b7dc550288dca832d25fe30a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/player/player.png"
-dest_files=["res://.godot/imported/player.png-d340f81abf0a3162ec6e69b8e169a012.ctex"]
+source_file="res://scenes/game_object/experience_vile/experience_vile.png"
+dest_files=["res://.godot/imported/experience_vile.png-15c8c9f7b7dc550288dca832d25fe30a.ctex"]
 
 [params]
 

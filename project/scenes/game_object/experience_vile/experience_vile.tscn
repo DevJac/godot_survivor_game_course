@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://di5ojajwpwh4j"]
+
+[ext_resource type="Script" path="res://scenes/game_object/experience_vile/experience_vile.gd" id="1_iqi7f"]
+[ext_resource type="Texture2D" uid="uid://bm4ki1lah8k16" path="res://scenes/game_object/experience_vile/experience_vile.png" id="2_gxk6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkajt"]
+
+[node name="ExperienceVile" type="Node2D"]
+script = ExtResource("1_iqi7f")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_nkajt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gxk6c")

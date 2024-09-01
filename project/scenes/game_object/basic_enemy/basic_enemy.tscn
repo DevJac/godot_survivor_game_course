@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh2mt4wpik2n5"]
 
-[ext_resource type="Texture2D" uid="uid://c1kxjnpp5wget" path="res://scenes/basic_enemy/basic_enemy.png" id="1_mmyo8"]
-[ext_resource type="Script" path="res://scenes/basic_enemy/basic_enemy.gd" id="1_nfv6j"]
+[ext_resource type="Texture2D" uid="uid://c1kxjnpp5wget" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="1_mmyo8"]
+[ext_resource type="Script" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_nfv6j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bucq"]
 
