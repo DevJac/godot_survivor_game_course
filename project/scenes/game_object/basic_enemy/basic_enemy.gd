@@ -4,9 +4,12 @@ extends CharacterBody2D
 const MAX_SPEED = 40
 
 
+@onready var health_component: HealthComponent = $HealthComponent
+
+
 func _ready() -> void:
 	$HitBox.area_entered.connect(func(_area: Area2D):
-		queue_free()
+		health_component.damage(100)
 	)
 
 
