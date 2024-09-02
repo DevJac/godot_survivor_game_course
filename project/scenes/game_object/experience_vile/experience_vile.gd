@@ -6,5 +6,5 @@ func _ready() -> void:
 
 
 func pickup_area_entered(_other_area: Area2D):
-	print_debug('vile pickup')
+	GameEvents.emit_experience_vile_collected(1)
 	queue_free()
