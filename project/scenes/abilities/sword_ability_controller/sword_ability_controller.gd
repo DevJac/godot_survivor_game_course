@@ -4,6 +4,7 @@ extends Node
 @export var sword_ability: PackedScene
 
 
+var damage = 5
 const MAX_RANGE := 150
 
 
@@ -25,8 +26,9 @@ func _ready() -> void:
 		if near_enemies.size() == 0:
 			return
 		var nearest_enemy: Node2D = near_enemies[0]
-		var sword_instance: Node2D = sword_ability.instantiate()
+		var sword_instance: SwordAbility = sword_ability.instantiate()
 		player.add_sibling(sword_instance)
+		sword_instance.hitbox_component.damage = damage
 		sword_instance.global_position = nearest_enemy.global_position
 		var player_to_enemy := nearest_enemy.global_position - player.global_position
 		sword_instance.rotation = player_to_enemy.angle()
