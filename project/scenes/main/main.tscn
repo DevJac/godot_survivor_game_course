@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7op3iid5pv1e"]
+[gd_scene load_steps=11 format=3 uid="uid://7op3iid5pv1e"]
 
 [ext_resource type="PackedScene" uid="uid://d3ld4va33owv3" path="res://scenes/ui/arena_time_ui.tscn" id="1_6jg3n"]
 [ext_resource type="PackedScene" uid="uid://dhluhm7l8owb7" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_ga2pn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://da5bsjldwtm1j" path="res://scenes/game_object/player/player.tscn" id="1_mtote"]
 [ext_resource type="PackedScene" uid="uid://cniq8kua7h25e" path="res://scenes/manager/arena_time_manager.tscn" id="2_poe86"]
 [ext_resource type="PackedScene" uid="uid://ck7n8fxbnh0sj" path="res://scenes/manager/experience_manager.tscn" id="3_d12du"]
+[ext_resource type="PackedScene" uid="uid://dd4fahiqfvayy" path="res://scenes/ui/experience_bar.tscn" id="4_a5dg3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tp3oc"]
 texture = ExtResource("1_h5nmu")
@@ -60,6 +61,9 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_poe86")]
 
 [node name="ExperienceManager" parent="." instance=ExtResource("3_d12du")]
+
+[node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("4_a5dg3")]
+experience_manager = NodePath("../ExperienceManager")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2fbm2")
