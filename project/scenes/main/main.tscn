@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7op3iid5pv1e"]
+[gd_scene load_steps=13 format=3 uid="uid://7op3iid5pv1e"]
 
 [ext_resource type="PackedScene" uid="uid://d3ld4va33owv3" path="res://scenes/ui/arena_time_ui.tscn" id="1_6jg3n"]
 [ext_resource type="PackedScene" uid="uid://dhluhm7l8owb7" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_ga2pn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ck7n8fxbnh0sj" path="res://scenes/manager/experience_manager.tscn" id="3_d12du"]
 [ext_resource type="PackedScene" uid="uid://cwo1ajegyk8pi" path="res://scenes/manager/upgrade_manager.tscn" id="4_6pwae"]
 [ext_resource type="PackedScene" uid="uid://dd4fahiqfvayy" path="res://scenes/ui/experience_bar.tscn" id="4_a5dg3"]
+[ext_resource type="PackedScene" uid="uid://bq613crnuygm2" path="res://scenes/ui/upgrade_screen.tscn" id="5_viyww"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tp3oc"]
 texture = ExtResource("1_h5nmu")
@@ -65,6 +66,7 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("4_6pwae")]
 experience_manager = NodePath("../ExperienceManager")
+upgrade_screen_scene = ExtResource("5_viyww")
 
 [node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("4_a5dg3")]
 experience_manager = NodePath("../ExperienceManager")
