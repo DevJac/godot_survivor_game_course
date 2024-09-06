@@ -11,9 +11,9 @@ func _process(_delta: float) -> void:
 	var to_player := vector_to_player()
 	if to_player.length_squared() > 1000:
 		velocity = to_player.normalized() * MAX_SPEED
+		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
-	move_and_slide()
 
 
 func vector_to_player() -> Vector2:
