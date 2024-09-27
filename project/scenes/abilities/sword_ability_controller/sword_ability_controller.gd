@@ -33,7 +33,9 @@ func on_timer_timeout():
 		return
 	var nearest_enemy: Node2D = near_enemies[0]
 	var sword_instance: SwordAbility = sword_ability.instantiate()
-	player.add_sibling(sword_instance)
+	var foreground_layer := (
+		get_tree().get_first_node_in_group('foreground_layer'))
+	foreground_layer.add_child(sword_instance)
 	sword_instance.hitbox_component.damage = damage
 	sword_instance.global_position = nearest_enemy.global_position
 	var player_to_enemy := nearest_enemy.global_position - player.global_position

@@ -13,5 +13,7 @@ func _ready() -> void:
 func on_died():
 	if randf() > drop_percent:
 		var vile_instance: Node2D = vile_scene.instantiate()
-		Callable(owner.add_sibling).call_deferred(vile_instance)
+		var entities_layer := (
+			get_tree().get_first_node_in_group('entities_layer'))
+		Callable(entities_layer.add_child).call_deferred(vile_instance)
 		vile_instance.global_position = owner.global_position
