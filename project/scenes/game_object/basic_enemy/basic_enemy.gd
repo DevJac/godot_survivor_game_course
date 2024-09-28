@@ -9,7 +9,7 @@ const MAX_SPEED = 40
 
 func _process(_delta: float) -> void:
 	var to_player := vector_to_player()
-	if to_player.length_squared() > 1000:
+	if to_player.length_squared() > 10:
 		velocity = to_player.normalized() * MAX_SPEED
 		move_and_slide()
 	else:
