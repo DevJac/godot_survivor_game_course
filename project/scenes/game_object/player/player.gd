@@ -27,6 +27,8 @@ func _ready():
 	$CollisionArea2D.body_entered.connect(on_body_entered)
 	$CollisionArea2D.body_exited.connect(on_body_exited)
 	$DamagerIntervalTimer.timeout.connect(check_deal_damage)
+	$HealthComponent.health_changed.connect(on_health_changed)
+	update_health_display()
 
 
 func _process(delta: float) -> void:
@@ -55,6 +57,10 @@ func check_deal_damage():
 	prints('Player health:', $HealthComponent.current_health)
 
 
+func update_health_display():
+	$HealthBar.value = $HealthComponent.get_health_percent()
+
+
 func on_body_entered(_body: Node2D) -> void:
 	num_colliding_bodies += 1
 	check_deal_damage()
@@ -62,3 +68,7 @@ func on_body_entered(_body: Node2D) -> void:
 
 func on_body_exited(_body: Node2D) -> void:
 	num_colliding_bodies -= 1
+
+
+func on_health_changed():
+	update_health_display()
