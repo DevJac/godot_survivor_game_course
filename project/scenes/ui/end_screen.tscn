@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvinolinsjf3y"]
 
-[ext_resource type="Script" path="res://scenes/ui/victory_screen.gd" id="1_qohd4"]
+[ext_resource type="Script" path="res://scenes/ui/end_screen.gd" id="1_qohd4"]
 
-[node name="VictoryScreen" type="CanvasLayer"]
+[node name="EndScreen" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_qohd4")
 
@@ -30,14 +30,16 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="VictoryLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Victory"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VictoryLabel2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "You won!"
 horizontal_alignment = 1

@@ -6,6 +6,7 @@ const ACCELERATION_SMOOTHING = 25
 
 
 var num_colliding_bodies: int = 0
+@onready var died: Signal = $HealthComponent.died
 
 
 const MOVEMENTS = {
