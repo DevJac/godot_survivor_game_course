@@ -3,6 +3,7 @@ extends Node
 
 @export var basic_enemy_scene: PackedScene
 @export var spawn_distance: float = 400
+@export var arena_time_manager: Node
 
 
 func _ready() -> void:
@@ -20,3 +21,5 @@ func on_timer_timeout():
 		+ (random_direction * spawn_distance))
 	var entities_layer := get_tree().get_first_node_in_group('entities_layer')
 	entities_layer.add_child(new_enemy)
+	$Timer.wait_time = 1 - arena_time_manager.arena_difficulty * 0.8
+	$Timer.start()

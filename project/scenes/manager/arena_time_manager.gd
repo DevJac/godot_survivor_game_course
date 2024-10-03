@@ -7,6 +7,13 @@ extends Node
 @onready var timer = $Timer
 
 
+var arena_difficulty: float:
+	get:
+		var result: float = get_time_elapsed() / $Timer.wait_time
+		assert(0 <= result and result <= 1)
+		return result
+
+
 func _ready() -> void:
 	timer.timeout.connect(on_timer_timeout)
 

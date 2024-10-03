@@ -75,7 +75,8 @@ upgrade_screen_scene = ExtResource("5_viyww")
 [node name="ExperienceBar" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("4_a5dg3")]
 experience_manager = NodePath("../ExperienceManager")
 
-[node name="EnemyManager" parent="." instance=ExtResource("1_lpnjh")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_lpnjh")]
+arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2fbm2")
