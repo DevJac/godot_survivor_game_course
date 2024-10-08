@@ -5,7 +5,8 @@ extends Node
 
 
 func _ready() -> void:
-	%Player.died.connect(on_player_died)
+	var player: Player = %Player
+	player.died.connect(on_player_died)
 
 
 func on_player_died():
