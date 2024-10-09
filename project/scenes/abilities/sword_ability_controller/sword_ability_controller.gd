@@ -15,6 +15,10 @@ func _ready() -> void:
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
+func rand_triangle_index(high: int) -> int:
+	return int(floor(min(randf(), randf()) * float(high)))
+
+
 func on_timer_timeout():
 	var enemies := get_tree().get_nodes_in_group('enemy')
 	if enemies.size() == 0:
@@ -31,7 +35,8 @@ func on_timer_timeout():
 	)
 	if near_enemies.size() == 0:
 		return
-	var nearest_enemy: Node2D = near_enemies[0]
+	var nearest_enemy: Node2D = (
+		near_enemies[rand_triangle_index(near_enemies.size())])
 	var sword_instance: SwordAbility = sword_ability.instantiate()
 	var foreground_layer := (
 		get_tree().get_first_node_in_group('foreground_layer'))
