@@ -31,6 +31,7 @@ func _ready():
 	$DamagerIntervalTimer.timeout.connect(check_deal_damage)
 	$HealthComponent.health_changed.connect(on_health_changed)
 	update_health_display()
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
 func _process(delta: float) -> void:
@@ -74,3 +75,9 @@ func on_body_exited(_body: Node2D) -> void:
 
 func on_health_changed():
 	update_health_display()
+
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, _current_upgrades: Dictionary):
+	if upgrade is not Ability:
+		return
+	$Abilities.add_child(upgrade.ability_controller_scene.instantiate())
